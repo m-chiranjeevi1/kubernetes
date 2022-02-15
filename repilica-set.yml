@@ -1,0 +1,28 @@
+
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: repilica-set
+  labels:
+    author: chiru
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: webserver
+  template:
+    metadata:
+      name: replica-pod
+      labels:
+        author: chiru
+        type: webserver
+    spec:
+      containers:
+        - name: replica-cont
+          image: tomcat
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+...
+        

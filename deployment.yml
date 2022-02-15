@@ -1,0 +1,30 @@
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  labels:
+    author: chiru
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      author: chiru
+      type: webserver
+  template:
+    metadata:
+      name: deploy-pod
+      labels:
+        author: chiru
+        type: webserver
+    spec:
+      containers:
+        - name: mynginx
+          image: nginx:1.7.9
+          ports:
+            - containerPort: 80
+              hostPort: 8080
+
+...
+

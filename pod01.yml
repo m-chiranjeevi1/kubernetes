@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+   name: nginx-pod1
+   labels:
+      author: chiru
+      type: webserver
+spec:
+   containers:
+      - name: nginx-cont1
+        image: nginx
+        ports:
+          - containerPort: 80
+...
